@@ -2,7 +2,7 @@
 
 > A server-side routing architecture that lets AI agents scale to thousands of tools without context bloat, hallucinations, or spiraling API costs.
 
-**Author:** Akshat Dwivedi - Founder & CEO, [Sashvat Bharat](https://sashvat.com)  
+**Author:** Akshat Dwivedi - Founder & CEO, [Sashvat Bharat](https://sashvat.com)<br>
 **Date:** March 2026
 
 ---
