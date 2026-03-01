@@ -1,0 +1,617 @@
+{
+    "get_weather": {
+        "short_desc": "Fetch current weather conditions for a location.",
+        "detailed_desc": "Retrieves real-time weather data including temperature, humidity, wind speed, and forecasts for any city or coordinates.",
+        "full_schema": {
+            "type": "function",
+            "name": "get_weather",
+            "parameters": {
+                "location": "string",
+                "units": "string"
+            }
+        }
+    },
+    "translate_text": {
+        "short_desc": "Translate text between languages.",
+        "detailed_desc": "Uses NLP translation APIs to convert text from one language to another, supporting 100+ languages with dialect awareness.",
+        "full_schema": {
+            "type": "function",
+            "name": "translate_text",
+            "parameters": {
+                "text": "string",
+                "source_lang": "string",
+                "target_lang": "string"
+            }
+        }
+    },
+    "create_calendar_event": {
+        "short_desc": "Create a new event on a calendar.",
+        "detailed_desc": "Adds a scheduled event to Google Calendar or Outlook with title, time, attendees, and optional video conferencing links.",
+        "full_schema": {
+            "type": "function",
+            "name": "create_calendar_event",
+            "parameters": {
+                "title": "string",
+                "start_time": "string",
+                "end_time": "string",
+                "attendees": "list"
+            }
+        }
+    },
+    "search_web": {
+        "short_desc": "Search the internet for up-to-date information.",
+        "detailed_desc": "Performs a web search via a search engine API and returns ranked results with titles, URLs, and snippets.",
+        "full_schema": {
+            "type": "function",
+            "name": "search_web",
+            "parameters": {
+                "query": "string",
+                "num_results": "integer"
+            }
+        }
+    },
+    "run_code": {
+        "short_desc": "Execute a code snippet in a sandboxed environment.",
+        "detailed_desc": "Runs Python, JavaScript, or Bash code in an isolated runtime and returns stdout, stderr, and exit codes.",
+        "full_schema": {
+            "type": "function",
+            "name": "run_code",
+            "parameters": {
+                "language": "string",
+                "code": "string"
+            }
+        }
+    },
+    "read_file": {
+        "short_desc": "Read the contents of a file from a path or URL.",
+        "detailed_desc": "Opens and returns the text content of local files or remote URLs, supporting txt, csv, json, and markdown formats.",
+        "full_schema": {
+            "type": "function",
+            "name": "read_file",
+            "parameters": {
+                "path": "string"
+            }
+        }
+    },
+    "write_file": {
+        "short_desc": "Write or overwrite content to a file.",
+        "detailed_desc": "Creates or overwrites a file at a given path with specified text content, useful for saving outputs or generated data.",
+        "full_schema": {
+            "type": "function",
+            "name": "write_file",
+            "parameters": {
+                "path": "string",
+                "content": "string"
+            }
+        }
+    },
+    "query_database": {
+        "short_desc": "Run a SQL query against a connected database.",
+        "detailed_desc": "Executes SQL SELECT, INSERT, UPDATE, or DELETE statements against a configured relational database and returns results as JSON.",
+        "full_schema": {
+            "type": "function",
+            "name": "query_database",
+            "parameters": {
+                "sql": "string",
+                "db_name": "string"
+            }
+        }
+    },
+    "fetch_url": {
+        "short_desc": "Retrieve the HTML content of a web page.",
+        "detailed_desc": "Performs an HTTP GET request to a URL and returns the response body, headers, and status code for scraping or API calls.",
+        "full_schema": {
+            "type": "function",
+            "name": "fetch_url",
+            "parameters": {
+                "url": "string",
+                "headers": "dict"
+            }
+        }
+    },
+    "post_to_slack": {
+        "short_desc": "Send a message to a Slack channel or user.",
+        "detailed_desc": "Uses the Slack API to post formatted messages, alerts, or notifications to specific channels or direct message threads.",
+        "full_schema": {
+            "type": "function",
+            "name": "post_to_slack",
+            "parameters": {
+                "channel": "string",
+                "message": "string"
+            }
+        }
+    },
+    "create_jira_ticket": {
+        "short_desc": "Create a new Jira issue or task.",
+        "detailed_desc": "Submits a new ticket to a Jira project with title, description, assignee, priority, and issue type via the Jira REST API.",
+        "full_schema": {
+            "type": "function",
+            "name": "create_jira_ticket",
+            "parameters": {
+                "project": "string",
+                "summary": "string",
+                "description": "string",
+                "priority": "string"
+            }
+        }
+    },
+    "get_github_repo_info": {
+        "short_desc": "Fetch metadata about a GitHub repository.",
+        "detailed_desc": "Retrieves repository details from GitHub including stars, forks, open issues, contributors, and recent commits.",
+        "full_schema": {
+            "type": "function",
+            "name": "get_github_repo_info",
+            "parameters": {
+                "owner": "string",
+                "repo": "string"
+            }
+        }
+    },
+    "generate_image": {
+        "short_desc": "Generate an image from a text prompt.",
+        "detailed_desc": "Calls an image generation model (e.g., DALL-E or Stable Diffusion) with a prompt and style parameters, returning an image URL.",
+        "full_schema": {
+            "type": "function",
+            "name": "generate_image",
+            "parameters": {
+                "prompt": "string",
+                "style": "string",
+                "size": "string"
+            }
+        }
+    },
+    "text_to_speech": {
+        "short_desc": "Convert text to spoken audio.",
+        "detailed_desc": "Uses a TTS engine to synthesize natural-sounding speech from text, with options for voice, speed, and output format.",
+        "full_schema": {
+            "type": "function",
+            "name": "text_to_speech",
+            "parameters": {
+                "text": "string",
+                "voice": "string",
+                "format": "string"
+            }
+        }
+    },
+    "speech_to_text": {
+        "short_desc": "Transcribe audio to text.",
+        "detailed_desc": "Processes an audio file or stream using ASR (automatic speech recognition) and returns a text transcript with timestamps.",
+        "full_schema": {
+            "type": "function",
+            "name": "speech_to_text",
+            "parameters": {
+                "audio_url": "string",
+                "language": "string"
+            }
+        }
+    },
+    "summarize_document": {
+        "short_desc": "Generate a concise summary of a document.",
+        "detailed_desc": "Uses an LLM to produce a structured summary of long text documents, PDFs, or web pages with configurable length.",
+        "full_schema": {
+            "type": "function",
+            "name": "summarize_document",
+            "parameters": {
+                "text": "string",
+                "max_length": "integer"
+            }
+        }
+    },
+    "classify_sentiment": {
+        "short_desc": "Detect the sentiment of a text snippet.",
+        "detailed_desc": "Analyzes text and returns a sentiment label (positive, neutral, negative) with a confidence score using NLP classification.",
+        "full_schema": {
+            "type": "function",
+            "name": "classify_sentiment",
+            "parameters": {
+                "text": "string"
+            }
+        }
+    },
+    "extract_entities": {
+        "short_desc": "Extract named entities from text.",
+        "detailed_desc": "Performs NER (Named Entity Recognition) on input text to identify people, organizations, locations, dates, and other entities.",
+        "full_schema": {
+            "type": "function",
+            "name": "extract_entities",
+            "parameters": {
+                "text": "string",
+                "entity_types": "list"
+            }
+        }
+    },
+    "convert_currency": {
+        "short_desc": "Convert an amount between currencies.",
+        "detailed_desc": "Fetches live exchange rates and converts a specified monetary amount from one currency to another.",
+        "full_schema": {
+            "type": "function",
+            "name": "convert_currency",
+            "parameters": {
+                "amount": "float",
+                "from_currency": "string",
+                "to_currency": "string"
+            }
+        }
+    },
+    "get_news_headlines": {
+        "short_desc": "Fetch top news headlines for a topic or region.",
+        "detailed_desc": "Queries a news API to return the latest headlines, sources, and article URLs filtered by keyword, category, or country.",
+        "full_schema": {
+            "type": "function",
+            "name": "get_news_headlines",
+            "parameters": {
+                "query": "string",
+                "country": "string",
+                "category": "string"
+            }
+        }
+    },
+    "upload_to_s3": {
+        "short_desc": "Upload a file to an AWS S3 bucket.",
+        "detailed_desc": "Transfers a local file to a specified S3 bucket and key path, with optional ACL settings and metadata tags.",
+        "full_schema": {
+            "type": "function",
+            "name": "upload_to_s3",
+            "parameters": {
+                "file_path": "string",
+                "bucket": "string",
+                "key": "string"
+            }
+        }
+    },
+    "download_from_s3": {
+        "short_desc": "Download a file from an AWS S3 bucket.",
+        "detailed_desc": "Retrieves a file from a specified S3 bucket and saves it locally or returns its content as bytes.",
+        "full_schema": {
+            "type": "function",
+            "name": "download_from_s3",
+            "parameters": {
+                "bucket": "string",
+                "key": "string",
+                "destination": "string"
+            }
+        }
+    },
+    "send_sms": {
+        "short_desc": "Send an SMS text message to a phone number.",
+        "detailed_desc": "Uses Twilio or a similar SMS gateway to deliver a text message to a specified phone number with optional sender ID.",
+        "full_schema": {
+            "type": "function",
+            "name": "send_sms",
+            "parameters": {
+                "to": "string",
+                "message": "string"
+            }
+        }
+    },
+    "create_spreadsheet": {
+        "short_desc": "Create a new spreadsheet with data.",
+        "detailed_desc": "Generates an Excel or Google Sheets spreadsheet from tabular data, with support for formatting, formulas, and multiple sheets.",
+        "full_schema": {
+            "type": "function",
+            "name": "create_spreadsheet",
+            "parameters": {
+                "data": "list",
+                "filename": "string",
+                "sheet_name": "string"
+            }
+        }
+    },
+    "parse_pdf": {
+        "short_desc": "Extract text and metadata from a PDF file.",
+        "detailed_desc": "Parses a PDF document to return raw text, page count, tables, and embedded metadata like author and creation date.",
+        "full_schema": {
+            "type": "function",
+            "name": "parse_pdf",
+            "parameters": {
+                "pdf_url": "string"
+            }
+        }
+    },
+    "resize_image": {
+        "short_desc": "Resize an image to specified dimensions.",
+        "detailed_desc": "Takes an image URL or file path and returns a resized version at the target width and height, preserving or cropping aspect ratio.",
+        "full_schema": {
+            "type": "function",
+            "name": "resize_image",
+            "parameters": {
+                "image_url": "string",
+                "width": "integer",
+                "height": "integer"
+            }
+        }
+    },
+    "ocr_image": {
+        "short_desc": "Extract text from an image using OCR.",
+        "detailed_desc": "Applies optical character recognition to detect and extract printed or handwritten text from an image file or URL.",
+        "full_schema": {
+            "type": "function",
+            "name": "ocr_image",
+            "parameters": {
+                "image_url": "string",
+                "language": "string"
+            }
+        }
+    },
+    "get_user_profile": {
+        "short_desc": "Retrieve a user's profile data from the system.",
+        "detailed_desc": "Fetches account details such as name, email, role, preferences, and activity history for a given user ID.",
+        "full_schema": {
+            "type": "function",
+            "name": "get_user_profile",
+            "parameters": {
+                "user_id": "string"
+            }
+        }
+    },
+    "update_user_profile": {
+        "short_desc": "Update fields in a user's profile.",
+        "detailed_desc": "Patches one or more fields (name, email, preferences, etc.) on a user record in the system database.",
+        "full_schema": {
+            "type": "function",
+            "name": "update_user_profile",
+            "parameters": {
+                "user_id": "string",
+                "fields": "dict"
+            }
+        }
+    },
+    "log_event": {
+        "short_desc": "Log a structured event to an analytics or monitoring system.",
+        "detailed_desc": "Sends a timestamped event payload with properties to a logging backend like Datadog, Mixpanel, or a custom endpoint.",
+        "full_schema": {
+            "type": "function",
+            "name": "log_event",
+            "parameters": {
+                "event_name": "string",
+                "properties": "dict"
+            }
+        }
+    },
+    "create_stripe_payment": {
+        "short_desc": "Initiate a payment charge via Stripe.",
+        "detailed_desc": "Creates a Stripe PaymentIntent or Charge for a specified amount and currency, returning a client secret or confirmation.",
+        "full_schema": {
+            "type": "function",
+            "name": "create_stripe_payment",
+            "parameters": {
+                "amount": "integer",
+                "currency": "string",
+                "customer_id": "string"
+            }
+        }
+    },
+    "get_product_inventory": {
+        "short_desc": "Check stock levels for a product.",
+        "detailed_desc": "Queries the inventory management system for current stock counts, warehouse location, and reorder thresholds for a SKU.",
+        "full_schema": {
+            "type": "function",
+            "name": "get_product_inventory",
+            "parameters": {
+                "sku": "string"
+            }
+        }
+    },
+    "place_order": {
+        "short_desc": "Place a product order in an e-commerce system.",
+        "detailed_desc": "Submits a purchase order with items, quantities, shipping address, and payment method to an order management system.",
+        "full_schema": {
+            "type": "function",
+            "name": "place_order",
+            "parameters": {
+                "items": "list",
+                "shipping_address": "dict",
+                "payment_method_id": "string"
+            }
+        }
+    },
+    "track_shipment": {
+        "short_desc": "Get real-time tracking status for a shipment.",
+        "detailed_desc": "Fetches tracking events and estimated delivery date from a carrier API (UPS, FedEx, DHL) using a tracking number.",
+        "full_schema": {
+            "type": "function",
+            "name": "track_shipment",
+            "parameters": {
+                "tracking_number": "string",
+                "carrier": "string"
+            }
+        }
+    },
+    "get_crypto_price": {
+        "short_desc": "Fetch the current price of a cryptocurrency.",
+        "detailed_desc": "Retrieves real-time price, market cap, 24h volume, and percentage change for a given crypto asset from an exchange API.",
+        "full_schema": {
+            "type": "function",
+            "name": "get_crypto_price",
+            "parameters": {
+                "symbol": "string",
+                "vs_currency": "string"
+            }
+        }
+    },
+    "scrape_table": {
+        "short_desc": "Extract a table from a web page.",
+        "detailed_desc": "Fetches a URL and parses HTML tables using CSS selectors or index, returning structured data as a list of dictionaries.",
+        "full_schema": {
+            "type": "function",
+            "name": "scrape_table",
+            "parameters": {
+                "url": "string",
+                "table_index": "integer"
+            }
+        }
+    },
+    "call_rest_api": {
+        "short_desc": "Make an arbitrary REST API call.",
+        "detailed_desc": "Sends an HTTP request (GET, POST, PUT, DELETE) to any REST endpoint with custom headers, query params, and body.",
+        "full_schema": {
+            "type": "function",
+            "name": "call_rest_api",
+            "parameters": {
+                "method": "string",
+                "url": "string",
+                "headers": "dict",
+                "body": "dict"
+            }
+        }
+    },
+    "get_system_metrics": {
+        "short_desc": "Retrieve CPU, memory, and disk metrics from a server.",
+        "detailed_desc": "Polls a server or cloud instance for system resource utilization including CPU %, RAM usage, disk I/O, and network throughput.",
+        "full_schema": {
+            "type": "function",
+            "name": "get_system_metrics",
+            "parameters": {
+                "host": "string"
+            }
+        }
+    },
+    "deploy_service": {
+        "short_desc": "Deploy or redeploy a cloud service.",
+        "detailed_desc": "Triggers a deployment pipeline for a specified service version on a cloud provider (AWS, GCP, Azure) or Kubernetes cluster.",
+        "full_schema": {
+            "type": "function",
+            "name": "deploy_service",
+            "parameters": {
+                "service_name": "string",
+                "version": "string",
+                "environment": "string"
+            }
+        }
+    },
+    "get_analytics_report": {
+        "short_desc": "Pull an analytics report for a date range.",
+        "detailed_desc": "Queries Google Analytics, Amplitude, or a custom BI tool for user metrics like sessions, conversions, and retention over a time window.",
+        "full_schema": {
+            "type": "function",
+            "name": "get_analytics_report",
+            "parameters": {
+                "metric": "string",
+                "start_date": "string",
+                "end_date": "string"
+            }
+        }
+    },
+    "create_pdf_report": {
+        "short_desc": "Generate a formatted PDF report from data.",
+        "detailed_desc": "Renders a PDF document from a template and data payload, supporting tables, charts, headers, footers, and embedded images.",
+        "full_schema": {
+            "type": "function",
+            "name": "create_pdf_report",
+            "parameters": {
+                "template": "string",
+                "data": "dict",
+                "output_path": "string"
+            }
+        }
+    },
+    "schedule_task": {
+        "short_desc": "Schedule a task or job to run at a future time.",
+        "detailed_desc": "Registers a deferred task in a job queue (e.g., Celery, AWS SQS) to execute a function or webhook at a specified datetime.",
+        "full_schema": {
+            "type": "function",
+            "name": "schedule_task",
+            "parameters": {
+                "task_name": "string",
+                "run_at": "string",
+                "payload": "dict"
+            }
+        }
+    },
+    "cancel_task": {
+        "short_desc": "Cancel a previously scheduled task.",
+        "detailed_desc": "Removes a pending job from the task queue by task ID before it has been executed.",
+        "full_schema": {
+            "type": "function",
+            "name": "cancel_task",
+            "parameters": {
+                "task_id": "string"
+            }
+        }
+    },
+    "get_document_embeddings": {
+        "short_desc": "Generate vector embeddings for a text document.",
+        "detailed_desc": "Calls an embedding model API to produce a high-dimensional vector representation of input text for semantic search or clustering.",
+        "full_schema": {
+            "type": "function",
+            "name": "get_document_embeddings",
+            "parameters": {
+                "text": "string",
+                "model": "string"
+            }
+        }
+    },
+    "semantic_search": {
+        "short_desc": "Search a vector store using natural language.",
+        "detailed_desc": "Embeds a query and performs ANN (approximate nearest neighbor) search over a vector database to return semantically relevant results.",
+        "full_schema": {
+            "type": "function",
+            "name": "semantic_search",
+            "parameters": {
+                "query": "string",
+                "index_name": "string",
+                "top_k": "integer"
+            }
+        }
+    },
+    "send_push_notification": {
+        "short_desc": "Send a push notification to a mobile device.",
+        "detailed_desc": "Delivers a push alert via FCM or APNs to a specific device token with a title, body, and optional deep-link payload.",
+        "full_schema": {
+            "type": "function",
+            "name": "send_push_notification",
+            "parameters": {
+                "device_token": "string",
+                "title": "string",
+                "body": "string",
+                "data": "dict"
+            }
+        }
+    },
+    "check_domain_availability": {
+        "short_desc": "Check if a domain name is available for registration.",
+        "detailed_desc": "Queries a WHOIS or registrar API to determine if a domain is taken, available, or in a redemption/pending-delete state.",
+        "full_schema": {
+            "type": "function",
+            "name": "check_domain_availability",
+            "parameters": {
+                "domain": "string"
+            }
+        }
+    },
+    "get_ip_geolocation": {
+        "short_desc": "Get geographic data for an IP address.",
+        "detailed_desc": "Looks up an IP address and returns its country, region, city, ISP, timezone, and approximate lat/lon coordinates.",
+        "full_schema": {
+            "type": "function",
+            "name": "get_ip_geolocation",
+            "parameters": {
+                "ip_address": "string"
+            }
+        }
+    },
+    "validate_email": {
+        "short_desc": "Validate the format and deliverability of an email address.",
+        "detailed_desc": "Checks email syntax, domain MX records, and optionally pings the SMTP server to verify if an address is deliverable.",
+        "full_schema": {
+            "type": "function",
+            "name": "validate_email",
+            "parameters": {
+                "email": "string"
+            }
+        }
+    },
+    "diff_text": {
+        "short_desc": "Compare two text strings and return their differences.",
+        "detailed_desc": "Performs a line-by-line or word-level diff between two text inputs, returning added, removed, and unchanged segments.",
+        "full_schema": {
+            "type": "function",
+            "name": "diff_text",
+            "parameters": {
+                "text_a": "string",
+                "text_b": "string",
+                "mode": "string"
+            }
+        }
+    }
+}
