@@ -132,8 +132,8 @@ jit-tool-protocol/
 
 > 📖 **For the full deep-dive** — architecture diagrams, mathematical cost analysis, multi-turn conversation handling, and experimental benchmarks - read the research paper :
 > 
-> **PDF :** [jit_research_paper.pdf](https://github.com/sashvat-bharat/jit-tool-protocol/jit_research_paper.pdf)
-> **Markdown :** [jit_research_paper.md](https://github.com/sashvat-bharat/jit-tool-protocol/jit_research_paper.md)
+> **PDF :** [jit_research_paper.pdf](https://github.com/sashvat-bharat/jit-tool-protocol/blob/main/jit_research_paper.pdf)
+> **Markdown :** [jit_research_paper.md](https://github.com/sashvat-bharat/jit-tool-protocol/blob/main/jit_research_paper.md)
 
 ---
 ## Experimental Results
